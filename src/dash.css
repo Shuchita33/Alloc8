@@ -1,0 +1,36 @@
+*{
+   margin: 0;
+   padding: 0;    
+}
+.dashhead{    
+    color: white; font-size:2vh;
+    padding: 2px;
+    background-color: var(--header);
+    height: 10vh;
+    display: flex; justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.dbuts{
+    margin:7px;
+    background-color:transparent;
+    color: #f1eaea;
+    font-size: 3vh;
+    font-weight: 100;
+    padding: 1vh;
+    transition: 0.3s;
+    border: none; 
+}
+
+.dbuts:hover{
+    background: var(--purple);
+    letter-spacing: 0.5vh ;
+    border-radius: 5px;
+    box-shadow: 0 0 35px var(--purple);
+}
+.logo{
+    height: 12vh;width: auto;background-color: transparent;
+    margin-inline-end: auto;
+   
+}
