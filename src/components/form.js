@@ -25,9 +25,9 @@ export default function Form(props){
        })
        
     }
-    
+
     function submit(e){
-        console.log("DATA IS ");
+       console.log("DATA IS ");
        console.log(data);
        e.preventDefault();
        if(data.id==="" || data.password==="") {alert("Missing Fields");}
@@ -40,10 +40,8 @@ export default function Form(props){
                {alert("logged in")}
             else alert("Wrong Password")
             
-        }
-       
-        else alert("enter a valid ID ")
-        
+        }   
+        else alert("enter a valid ID ")       
     }
    
     useEffect(() => {
@@ -56,9 +54,8 @@ export default function Form(props){
         )
     }, []);
 
-    return(
-       
-        <form className="mainform"action="" >
+    return(      
+    <form className="mainform"action="" >
         <h2>{props.acctype} Account</h2>
         <div  className="input-box">
             <input name="id" onChange={getData} type="text" required/>
@@ -71,8 +68,6 @@ export default function Form(props){
         <div className="input-box">
             <input  onClick={submit} type="submit" value="Login"/>
         </div>
-        
-
     </form>
     )
 }

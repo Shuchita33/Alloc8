@@ -1,36 +1,102 @@
-*{
+.studash{
    margin: 0;
    padding: 0;    
+   --bg: rgb(244, 242, 245);
+   --header:rgb(80, 79, 80);
+   --color:rgb(189, 182, 171);
 }
-.dashhead{    
-    color: white; font-size:2vh;
-    padding: 2px;
+.dashhead{
+    --bg: rgb(244, 242, 245);
+   --header:rgb(80, 79, 80);
+   --color:rgb(189, 182, 171);    
+    color: white; font-size:1vh;
+    padding: 1vh;
     background-color: var(--header);
-    height: 10vh;
+    height: 7vh;
     display: flex; justify-content: flex-end;
-    flex-direction: row;
-    align-items: center;
-    
+    flex-direction: row; align-items: center;
 }
 .dbuts{
     margin:7px;
-    background-color:transparent;
-    color: #f1eaea;
-    font-size: 3vh;
+    background-color:white; color: #000000;
+    font-size: 2vh;
     font-weight: 100;
     padding: 1vh;
     transition: 0.3s;
-    border: none; 
+    border-radius: 5px;
+    border:none;
 }
 
 .dbuts:hover{
-    background: var(--purple);
+    background: white;
     letter-spacing: 0.5vh ;
     border-radius: 5px;
-    box-shadow: 0 0 35px var(--purple);
+    box-shadow: 0 0 35px var(white);
 }
 .logo{
-    height: 12vh;width: auto;background-color: transparent;
+    height: 7vh;width: auto;
+    background-color: white;
     margin-inline-end: auto;
-   
+    border-radius: 60%;  
+}
+.card{
+    float: left;
+    background-color:var(--bg);
+    height: 100vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+}
+.mainside{
+    float: right;
+    height: 100vh;
+    width: 70%;
+}
+.top{
+    width: 98%;
+    height: 10%;
+    float: top;
+    background-color:  var(--color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%; padding-right: 1%;
+}
+.content{
+    box-sizing: border-box;
+    width: 100%;
+    height: 90%;
+    float:bottom;
+    border: 1vh solid var(--color) ;
+    background-color:var(--bg);    
+}
+.options{
+    height: auto; width: 10vw;
+    background-color: aliceblue;
+    padding: 0.5vw;
+    text-align: center;
+    color:black;
+    border: none;
+    transition: 0.1s;
+    font-size: 2vh;
+}
+.options:hover{
+    background-color: rgb(153, 243, 196);
+    font-size: 2.5vh;
+}
+.pict{
+    margin: 5vh;
+    height: 30%;width:44%; border-radius: 50%;
+    background-color: rgb(210, 127, 255);
+}
+.profile{
+    box-sizing: border-box;
+    border-radius: 3.8vh;
+    margin:2vh ;
+    height: 70%;
+    width: 90%;
+    background-color:var(--color);
+    text-align: center;
 }
