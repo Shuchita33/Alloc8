@@ -235,11 +235,10 @@ form h2{
   font-size: 1.3em;
   position: absolute;
   left :0%;
-  height: 0px;
+  text-align: left;
   pointer-events: none;
   color: #b1adad;
-  text-transform: uppercase;
-
+  text-transform: uppercase; 
 }
 
 .input-box label span{ 

@@ -38,7 +38,7 @@ function App() {
         <Route path='/dash' 
                Component={()=>
                 <div className='studash'>
-                <StuDash name="shu" erno="211b311"></StuDash>
+                <StuDash></StuDash>
               </div>
              }>
         </Route>
