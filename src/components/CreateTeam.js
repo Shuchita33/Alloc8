@@ -1,5 +1,6 @@
 import React from "react";
 import '../dash.css';
+import { Outlet } from "react-router-dom";
 export default function CreateTeam(){
     return(
         <div className="create-team">
@@ -42,9 +43,8 @@ export default function CreateTeam(){
                     <button className="check">Check</button>
 
                 </div>
-
                 </div>
-
+            <Outlet></Outlet>
             </div>
         </div>
     )

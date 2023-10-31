@@ -7,22 +7,16 @@ import TeamDetails from './TeamDetails';
 import ViewProposal from './ViewProposal.js';
 import ViewSlots from './ViewSlots.js';
 import SendProposal from './SendProposal.js';
-import { useLocation } from 'react-router-dom';
+import { Outlet, useLocation,useNavigate } from 'react-router-dom';
 
 export default function StuDash(props){
-    const location=useLocation()
-    console.log(location.state);
-    const [check,setcheck]=useState('F');
-    const [cont,setcont]=useState("");   
-    const [teamData,setDetails]=useState({
-        teamID:'',
-        member1:{name:'',erno:'',phno:''},
-        member2:{name:'',erno:'',phno:''}
-    });
-
+    const navigate=useNavigate()  
+    const loginData=props.log
+    //console.log(loginData)
+    const [student,setStudent]=useState({name:'',erno:'',email:'',phno:''})
     const logins=[
         {id:'a',password:'a11',erno:'211b311',name:'Shuchita',email:'shu@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:56},
-        {id:'b',password:'b11',erno:'211b405',name:'Nancy',email:'nan@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
+        {id:'b',password:'b11',erno:'211b405',name:'Nancy',email:'nan@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:56},
         {id:'c',password:'c11',erno:'211b353',name:'Yash',email:'ya@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:56},
         {id:'d',password:'d11',erno:'211b111',name:'C',email:'c@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
         {id:'e',password:'e11',erno:'211b211',name:'D',email:'d@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
@@ -30,30 +24,71 @@ export default function StuDash(props){
         {id:'g',password:'g11',erno:'211b111',name:'F',email:'f@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
         {id:'h',password:'h11',erno:'211b211',name:'G',email:'g@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
     ]
-    useEffect(()=>getTeaminfo(logins,location.state.datas.teamID),[])
+    
+    const [check,setcheck]=useState('F');
+   
+    const [teamData,setDetails]=useState({
+        teamID:'',
+        member1:{name:'',erno:'',phno:''},
+        member2:{name:'',erno:'',phno:''}
+    });
 
-    function getTeaminfo(data,id){
-            let idd=location.state.datas.teamID;
-            let element=data.filter(element=>element.teamID==idd && element.name!=location.state.datas.name)
-            if(element.length==2 && element[0].teamID==idd && element[1].teamID==idd)
-            { 
-                setDetails({...teamData,teamID:element[0].teamID,
-                member1:{name:element[0].name,erno:element[0].erno,phno:element[0].phno},
-                member2:{name:element[1].name,erno:element[1].erno,phno:element[1].phno},
-            })
-            setcheck('T')
+    useEffect(()=>{
+       
+        function getTeaminfo(erno,teamId){
+       
+            let element=logins.filter(element=>element.teamID===teamId && element.erno!=erno)
+            console.log(element)
+            if(element.length===2 && element[0].teamID===teamId && element[1].teamID===teamId){ 
+              setDetails({...teamData,teamID:teamId,
+              member1:{name:element[0].name,erno:element[0].erno,phno:element[0].phno},
+              member2:{name:element[1].name,erno:element[1].erno,phno:element[1].phno},
+              })
+             setcheck('T')
+             }      
+            } 
+
+        if(loginData.id==="" || loginData.password==="") {
+            
+            alert("Missing Fields")
+            navigate('/')
         }
+ 
+       else if(logins.find(element=>element.id===loginData.id)){
+            
+        // id is present 
+            let obj=logins.find(element=>element.id===loginData.id)
+            //console.log(obj);
         
-    console.log(teamData)
-    } 
+        //check for password
+            if(obj.password===loginData.password)
+            {   //alert("logged in")
+                //go to destination page by passing props using 'state'    
+                console.log(obj);   
+                setStudent({name:obj.name,erno:obj.erno,email:obj.email,phno:obj.phno})
+                getTeaminfo(obj.erno,obj.teamID)
+                console.log(teamData)
+            }
+            else {
+                alert("Wrong Password")
+                navigate('/') }  
+        } 
+
+        else {
+            alert("enter a valid ID ")   
+            navigate('/')
+        }  
+    },[])
+      
     function teamDetails(){
-        
         if(check==='T'){
-            setcont(<TeamDetails details={teamData}></TeamDetails>)
+            navigate('create-team')        
         }
-        else setcont(<CreateTeam></CreateTeam>)
+        else   navigate('create-team')
     }
 
+
+// jsx to student dashboard page
     return(
     <div>
         <header> 
@@ -66,20 +101,20 @@ export default function StuDash(props){
         <div className='card'>
         <img className='pict' alt='pict'></img>
         <div className='profile'>
-            <p>{location.state.datas.name}</p>
-            <p>{location.state.datas.erno}</p>
-            <p>{location.state.datas.email}</p>
-            <p>{location.state.datas.phno}</p>
+            <p>{student.name}</p>
+            <p>{student.erno}</p>
+            <p>{student.email}</p>
+            <p>{student.phno}</p>
         </div>
        </div>
        <div className='mainside'>
         <div className='top'>
             <button className='options' onClick={teamDetails}>Create/View Team</button>
-            <button className='options' onClick={()=>setcont(<ViewProposal/>)} >View Proposal</button>
-            <button className='options' onClick={()=>setcont(<SendProposal/>)} >Send Proposal</button>
-            <button className='options' onClick={()=>setcont(<ViewSlots/>)}>View Slots</button>        
+            <button className='options' onClick={()=>navigate('view-proposal')} >View Proposal</button>
+            <button className='options' onClick={()=>navigate('send-proposal')} >Send Proposal</button>
+            <button className='options' onClick={()=>navigate('view-slots')}>View Slots</button>        
         </div>
-        {cont}
+       <Outlet></Outlet>
        </div>  
     </div>
     )
