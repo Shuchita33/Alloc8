@@ -7,8 +7,8 @@ export default function Landing(props){
   <div>     
   <header>
         <div className='header'>
-        <img className='logo'src={logo} alt='logo'></img>
-        <button className="menubuts">Login</button>  
+        <img className='logo'src={logo} alt='logo' onClick={()=>{document.location.href='/'}}></img>
+        <button className="menubuts" onClick={()=>{document.location.href='#log'}}>Login</button>  
         <button className="menubuts">About Us</button>    
         </div>
       <div className="navgrad"></div>
@@ -23,7 +23,7 @@ export default function Landing(props){
       <div className='side'><img src={gif} alt='sideimg'></img> </div>     
     </div>
   <div className='login-part'>
-  <p className='magic'>LOGIN</p>
+  <a id='log'><p className='magic'>LOGIN</p></a>
   </div>
   </div>   
   </div>

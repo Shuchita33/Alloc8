@@ -2,22 +2,19 @@ import React, { useState,useEffect } from 'react';
 import '../dash.css';
 import logo from '../icons/Project.gif';
 import navbut from '../icons/nav_but.png';
-import CreateTeam from './CreateTeam.js';
-import TeamDetails from './TeamDetails';
-import ViewProposal from './ViewProposal.js';
-import ViewSlots from './ViewSlots.js';
-import SendProposal from './SendProposal.js';
 import { Outlet, useLocation,useNavigate } from 'react-router-dom';
 
 export default function StuDash(props){
     const navigate=useNavigate()  
-    const loginData=props.log
+    //const loginData=props.log
+    const saved = localStorage.getItem("logindata");
+    const loginData = JSON.parse(saved);
     //console.log(loginData)
-    const [student,setStudent]=useState({name:'',erno:'',email:'',phno:''})
+    const [student,setStudent]=useState({name:'',erno:'',email:'',phno:'',teamID:''})
     const logins=[
-        {id:'a',password:'a11',erno:'211b311',name:'Shuchita',email:'shu@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:56},
-        {id:'b',password:'b11',erno:'211b405',name:'Nancy',email:'nan@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:56},
-        {id:'c',password:'c11',erno:'211b353',name:'Yash',email:'ya@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:56},
+        {id:'a',password:'a11',erno:'211b311',name:'Shuchita',email:'shu@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:44},
+        {id:'b',password:'b11',erno:'211b405',name:'Nancy',email:'nan@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:44},
+        {id:'c',password:'c11',erno:'211b353',name:'Yash',email:'ya@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:44},
         {id:'d',password:'d11',erno:'211b111',name:'C',email:'c@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
         {id:'e',password:'e11',erno:'211b211',name:'D',email:'d@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
         {id:'f',password:'f11',erno:'211b411',name:'E',email:'e@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
@@ -27,12 +24,6 @@ export default function StuDash(props){
     
     const [check,setcheck]=useState('F');
    
-    const [teamData,setDetails]=useState({
-        teamID:'',
-        member1:{name:'',erno:'',phno:''},
-        member2:{name:'',erno:'',phno:''}
-    });
-
     useEffect(()=>{
        
         function getTeaminfo(erno,teamId){
@@ -40,10 +31,6 @@ export default function StuDash(props){
             let element=logins.filter(element=>element.teamID===teamId && element.erno!=erno)
             console.log(element)
             if(element.length===2 && element[0].teamID===teamId && element[1].teamID===teamId){ 
-              setDetails({...teamData,teamID:teamId,
-              member1:{name:element[0].name,erno:element[0].erno,phno:element[0].phno},
-              member2:{name:element[1].name,erno:element[1].erno,phno:element[1].phno},
-              })
              setcheck('T')
              }      
             } 
@@ -65,9 +52,9 @@ export default function StuDash(props){
             {   //alert("logged in")
                 //go to destination page by passing props using 'state'    
                 console.log(obj);   
-                setStudent({name:obj.name,erno:obj.erno,email:obj.email,phno:obj.phno})
+                setStudent({name:obj.name,erno:obj.erno,email:obj.email,phno:obj.phno,teamID:obj.teamID})
                 getTeaminfo(obj.erno,obj.teamID)
-                console.log(teamData)
+                console.log(student)              
             }
             else {
                 alert("Wrong Password")
@@ -78,11 +65,11 @@ export default function StuDash(props){
             alert("enter a valid ID ")   
             navigate('/')
         }  
-    },[])
+    })
       
     function teamDetails(){
         if(check==='T'){
-            navigate('create-team')        
+            navigate('view-team')        
         }
         else   navigate('create-team')
     }
@@ -93,8 +80,8 @@ export default function StuDash(props){
     <div>
         <header> 
         <div className='dashhead'>
-        <img className='logo'src={logo} alt='logo'></img>
-        <button className="dbuts">Logout</button>  
+        <img className='logo'src={logo} alt='logo' onClick={()=>{navigate('/student')}}></img>
+        <button className="dbuts" onClick={()=>{navigate('/')}}>Logout</button>  
         <img style={{height:'7vh'}}className='navbut'src={navbut} alt='navbut'></img>
         </div>
         </header>

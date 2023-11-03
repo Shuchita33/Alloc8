@@ -1,7 +1,7 @@
 import React, { useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Form(props){   
+export default function Form(props){  
     const navigate=useNavigate()   
     const[data,setdata]=useState({
         id:"",
@@ -18,8 +18,11 @@ export default function Form(props){
     function submit(e){
        e.preventDefault(e)
        console.log(props)
-       props.log(data)
-       navigate('/dash')          
+       //props.log(data)
+      
+       localStorage.setItem("logindata", JSON.stringify(data));
+
+       navigate('/student')          
     }
     
     useEffect(() => {
