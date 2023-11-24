@@ -17,8 +17,8 @@ export default function StuDash(props){
         {id:'c',password:'c11',erno:'211b353',name:'Yash',email:'ya@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:44},
         {id:'d',password:'d11',erno:'211b111',name:'C',email:'c@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
         {id:'e',password:'e11',erno:'211b211',name:'D',email:'d@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
-        {id:'f',password:'f11',erno:'211b411',name:'E',email:'e@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
-        {id:'g',password:'g11',erno:'211b111',name:'F',email:'f@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
+        {id:'f',password:'f11',erno:'211b411',name:'E',email:'e@gmail.com',role:'M',phno:9981469401,profilePic:'',teamID:null},
+        {id:'g',password:'g11',erno:'211b111',name:'F',email:'f@gmail.com',role:'A',phno:9981469401,profilePic:'',teamID:null},
         {id:'h',password:'h11',erno:'211b211',name:'G',email:'g@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
     ]
     
@@ -29,43 +29,34 @@ export default function StuDash(props){
         function getTeaminfo(erno,teamId){
        
             let element=logins.filter(element=>element.teamID===teamId && element.erno!=erno)
-            console.log(element)
+            //console.log(element)
             if(element.length===2 && element[0].teamID===teamId && element[1].teamID===teamId){ 
              setcheck('T')
              }      
             } 
 
-        if(loginData.id==="" || loginData.password==="") {
-            
-            alert("Missing Fields")
-            navigate('/')
-        }
- 
-       else if(logins.find(element=>element.id===loginData.id)){
+    
+        if(logins.find(element=>element.id===loginData.id)){
             
         // id is present 
             let obj=logins.find(element=>element.id===loginData.id)
             //console.log(obj);
         
         //check for password
-            if(obj.password===loginData.password)
+            if(obj.password===loginData.password && obj.role==='S')
             {   //alert("logged in")
                 //go to destination page by passing props using 'state'    
-                console.log(obj);   
+                //console.log(obj);   
                 setStudent({name:obj.name,erno:obj.erno,email:obj.email,phno:obj.phno,teamID:obj.teamID})
                 getTeaminfo(obj.erno,obj.teamID)
-                console.log(student)              
+                //console.log(student)              
             }
             else {
                 alert("Wrong Password")
                 navigate('/') }  
         } 
 
-        else {
-            alert("enter a valid ID ")   
-            navigate('/')
-        }  
-    })
+    },[loginData.id, loginData.password, logins, navigate] )
       
     function teamDetails(){
         if(check==='T'){

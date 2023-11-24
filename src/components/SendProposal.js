@@ -16,13 +16,16 @@ export default function SendProposal(){
         {name:'Dr. Amit Kumar Srivastava',erno:'1234', phno:'0123456789',email:'amit.srivastava1@juet.ac.in',profilepic:'',desc:'Model based Engineering, AI and Computational Intelligence, ML, Robotics, Computer Vision'},
         {name:'Dr. P.S. Banerjee',erno:'1234', phno:'0123456789',email:'partha.banerjee@juet.ac.in',profilepic:'',desc:'Natural Language Processing, AI, Data Base Management System, Unstructured Data Handling'},
         {name:'Dr. Gaurav Saxena',erno:'1234', phno:'0123456789',email:'gaurav.saxena@juet.ac.in',profilepic:'',desc:'Signal processing, DCS, AI&ML, IoT, ADC, VLSI Architecture design and Computer Organization & Architecture'},
-        {name:'Dr. Kunj Bihari Meena',erno:'1234', phno:'0123456789',email:'kunjbihari.meena@juet.ac.in',profilepic:'',desc:'Digital Image Forensics, Deep Learning, Image Processing, Computer Vision, OOPs, Data Structures'}
+        {name:'Dr. Kunj Bihari Meena',erno:'1234', phno:'0123456789',email:'kunjbihari.meena@juet.ac.in',profilepic:'',desc:'Digital Image Forensics, Deep Learning, Image Processing, Computer Vision, OOPs, DS'}
     ]
+    const proposal=[]
     useEffect(()=>{
+      
         const rows=Math.ceil(mentorDetails.length/4)
         console.log(rows)
 
     },[])
+   // useEffect(()=>getproposal(item),[])
     const elements=mentorDetails.map(item=>{
         return(
             <div className="mentor-details">
@@ -33,7 +36,10 @@ export default function SendProposal(){
             <p style={{fontWeight:'bold',left:'10%'}}>Areas of Interest : </p>
             <p>{item.desc}</p>
             </div>
-            <button onClick={()=>{console.log(item)}}>send</button>
+            <button onClick={()=>{
+                let bt=document.getElementsByTagName('button')
+                bt.style.backgroundColor='green';
+                if(proposal.findIndex(element=>element===item.name)===-1) {proposal.push(item.name)} console.log(proposal)}}>send</button>
             </div>
         )
     })
@@ -54,7 +60,6 @@ export default function SendProposal(){
           <div className="card-container">                 
                 {elements.slice(12,16)}
           </div>
-
        </div>
     )
 }

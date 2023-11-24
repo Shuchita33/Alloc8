@@ -6,6 +6,9 @@ import { Outlet, useLocation,useNavigate } from 'react-router-dom';
 
 export default function MentorDash(props){
     const navigate=useNavigate()
+    const [proposal,setproposal]=useState({
+        pid:'',teamId:'',mentor:'',title:'',desc:'',status:''
+    })
     return(
     <div>
         <header> 
