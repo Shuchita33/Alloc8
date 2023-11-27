@@ -236,6 +236,15 @@
      
      background:rgb(165, 159, 149);
  }
+ .proposal-info{
+    display: flex; flex-direction: row; justify-content: space-around;
+    align-items: center;
+    width:80%;
+    height:10vh;
+    background-color:rgb(189, 182, 171);
+    margin:3vh;
+    font-size: 100%;
+ }
  /*form*/
  
  .viewform form{
@@ -371,28 +380,13 @@
     
 }
 
-.s1 div{
-    /* display: flex; */
+.s1 div, .s2 div{
+    display: flex;  flex-direction: row;
     /* border: 3px solid black; */
-    border-radius: 20px;
-    margin-bottom: 2vh;
-    width: 20vw;
-    /* justify-content: center; */
-    background-color: rgb(240, 240, 240);
-    padding-left: 4vw;
-    padding-right: 5vw;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-
-.s2 div{
-    /* display: flex; */
-    /* border: 3px solid black; */
-    border-radius: 20px;
-    margin-bottom: 2vh;
-    width: 20vw;
-    padding-left: 4vw;
-    padding-right: 5vw;
-    /* justify-content: center; */
+    border-radius: 20px; margin-bottom: 2vh;
+    align-items: center; justify-content: space-around;
+    height: 10vh; width: 20vw;
+    padding-left: 3vh;padding-right: 3vh;
     background-color: rgb(240, 240, 240);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -402,7 +396,6 @@
     /* font-size: large; */
     font-weight: bold;
     float: left;
-    padding-top: 10px;
     align-items: center;
     justify-content: center;
     word-spacing: 3px;
@@ -413,7 +406,7 @@
     float: right;
     /* border: 2px solid paleturquoise;*/
     /* border-radius:100%; */
-    padding: 10px;
+    
     /* background-color: beige;
     width: 10px;
     height: 10px; */

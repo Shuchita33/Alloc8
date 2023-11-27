@@ -13,6 +13,12 @@ import ViewSlots from './components/ViewSlots';
 import SendProposal from './components/SendProposal';
 import MentorDash from './components/MentorDash';
 import Admin from './components/Admin';
+import NewProposals from './components/NewProposals';
+import AcceptedProposals from './components/AcceptedProposals';
+import ViewTeams from './components/ViewTeams';
+import CreateUser from './components/CreateUser';
+import DeleteUser from './components/DeleteUser';
+import ViewStudents from './components/ViewStudents';
 function App() {
   let [acc,setacc]=useState("Admin")
   // let [loginCred,setlogin]=useState({
@@ -54,7 +60,7 @@ function App() {
         </Route>              
         <Route path='/student' 
               element={
-                <div className='studash'><StuDash/></div>} >
+              <div className='studash'><StuDash/></div>} >
                   <Route path='create-team' element={<CreateTeam/>}/>
                   <Route path='view-team' element={<TeamDetails/>}/>
                   <Route path='view-proposal' element={<ViewProposal/>}/>
@@ -62,10 +68,20 @@ function App() {
                   <Route path='view-slots' element={<ViewSlots/>}/>
         </Route>
         <Route path='/mentor' 
-        element={<div className='mentor'><MentorDash/></div>}>
+              element={
+              <div className='mentor'><MentorDash/></div>}>
+                  <Route path='new-proposals' element={<NewProposals/>}/>
+                  <Route path='accepted-proposals' element={<AcceptedProposals/>}/>
+                  <Route path='view-teams' element={<ViewTeams/>}/>
         </Route>
         <Route path='/admin' 
-        element={<div className='admin'><Admin/></div>}>
+        element={
+        <div className='admin'><Admin/></div>}>
+                  <Route path='create-user' element={<CreateUser/>}/>
+                  <Route path='delete-user' element={<DeleteUser/>}/>
+                  <Route path='view-student' element={<ViewStudents/>}/>
+                  <Route path='view-mentor' element={<DeleteUser/>}/>
+                  <Route path='view-teams' element={<ViewTeams/>}/>
         </Route>
      </Routes>
     </div>

@@ -3,60 +3,62 @@ import '../dash.css';
 import logo from '../icons/Project.gif';
 import navbut from '../icons/nav_but.png';
 import { Outlet, useLocation,useNavigate } from 'react-router-dom';
+import user from '../api/data'
 
-export default function StuDash(props){
+export default function StuDash(){
     const navigate=useNavigate()  
     //const loginData=props.log
     const saved = localStorage.getItem("logindata");
     const loginData = JSON.parse(saved);
+
     //console.log(loginData)
     const [student,setStudent]=useState({name:'',erno:'',email:'',phno:'',teamID:''})
-    const logins=[
-        {id:'a',password:'a11',erno:'211b311',name:'Shuchita',email:'shu@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:44},
-        {id:'b',password:'b11',erno:'211b405',name:'Nancy',email:'nan@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:44},
-        {id:'c',password:'c11',erno:'211b353',name:'Yash',email:'ya@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:44},
-        {id:'d',password:'d11',erno:'211b111',name:'C',email:'c@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
-        {id:'e',password:'e11',erno:'211b211',name:'D',email:'d@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
-        {id:'f',password:'f11',erno:'211b411',name:'E',email:'e@gmail.com',role:'M',phno:9981469401,profilePic:'',teamID:null},
-        {id:'g',password:'g11',erno:'211b111',name:'F',email:'f@gmail.com',role:'A',phno:9981469401,profilePic:'',teamID:null},
-        {id:'h',password:'h11',erno:'211b211',name:'G',email:'g@gmail.com',role:'S',phno:9981469401,profilePic:'',teamID:null},
-    ]
-    
+
+    const logins=[]
     const [check,setcheck]=useState('F');
    
+    function getTeaminfo(logins,erno,teamId){    
+        let element=logins.filter(element=>element.teamID===teamId && element.erno!=erno)
+        //console.log(element)
+        if(element.length===2 && element[0].teamID===teamId && element[1].teamID===teamId){ 
+         setcheck('T')
+         }      
+    } 
+
+    const getAccountDetails= async()=>{
+        const response=await user.get('/user')
+        const logins=response.data
+        if(logins.find(element=>element.loginid===loginData.id)){
+            
+            // id is present 
+                let obj=logins.find(element=>element.loginid===loginData.id)
+                console.log(obj);
+            
+            //check for password
+                if(obj.password===loginData.password && obj.role==='S')
+                {   //alert("logged in")
+                    localStorage.setItem("logged_user", JSON.stringify(obj));
+            
+                    console.log(obj);   
+                    setStudent({name:obj.name,erno:obj.erno,email:obj.email,phno:obj.phno,teamID:obj.teamID})
+                    getTeaminfo(logins,obj.erno,obj.teamID)
+                    //console.log(student)              
+                }
+                else {
+                    alert("Wrong Password")
+                    navigate('/') }  
+            }     
+
+    }
+  
     useEffect(()=>{
        
-        function getTeaminfo(erno,teamId){
-       
-            let element=logins.filter(element=>element.teamID===teamId && element.erno!=erno)
-            //console.log(element)
-            if(element.length===2 && element[0].teamID===teamId && element[1].teamID===teamId){ 
-             setcheck('T')
-             }      
-            } 
-
-    
-        if(logins.find(element=>element.id===loginData.id)){
-            
-        // id is present 
-            let obj=logins.find(element=>element.id===loginData.id)
-            //console.log(obj);
+        //console.log(getAccountDetails())
+        getAccountDetails()
         
-        //check for password
-            if(obj.password===loginData.password && obj.role==='S')
-            {   //alert("logged in")
-                //go to destination page by passing props using 'state'    
-                //console.log(obj);   
-                setStudent({name:obj.name,erno:obj.erno,email:obj.email,phno:obj.phno,teamID:obj.teamID})
-                getTeaminfo(obj.erno,obj.teamID)
-                //console.log(student)              
-            }
-            else {
-                alert("Wrong Password")
-                navigate('/') }  
-        } 
-
-    },[loginData.id, loginData.password, logins, navigate] )
+        console.log(logins)
+        
+    },[] )
       
     function teamDetails(){
         if(check==='T'){

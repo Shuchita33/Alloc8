@@ -1,31 +1,70 @@
 import React, { useEffect } from "react";
 import '../dash.css';
 import propic from '../icons/user.png';
+import { useState } from "react";
+import mentor from '../api/data';
+import team from '../api/data';
+import user from '../api/data';
+import proposals from '../api/data';
+import { useLocation } from "react-router-dom";
+
 export default function SendProposal(){
-    const mentorDetails=[
-        {name:'Dr. Prateek Pandey',erno:'1234' , phno:'0123456789',email:'prateek.pandey@juet.ac.in',profilepic:'',desc:'Blockchain, ML, Software Engineering and Computer Programming'},
-        {name:'Prof. Mahesh Kumar',erno:'1234' , phno:'0123456789',email:'mahesh.kumar@juet.ac.in',profilepic:'',desc:'Computer Networks, Networks Security, ML, IoT, Deep Neural Network'},
-        {name:'Prof. Sanjay Garg',erno:'1234', phno:'0123456789',email:'sanjay.garg@juet.ac.in',profilepic:'',desc:'Data Science, Algorithms and Pattern Recognition'},
-        {name:'Prof. Vipin Tyagi',erno:'1234', phno:'0123456789',email:'vipin.tyagi@juet.ac.in',profilepic:'',desc:'Digital Image Processing, Cyber Forensics and Speech Recognition'},
-        {name:'Dr. Rahul Pachauri',erno:'1234', phno:'0123456789',email:'rahul.pachauri@juet.ac.in',profilepic:'',desc:'Digital Signal Processing, Wireless/Mobile Communication, ML, Neural Networks'},
-        {name:'Dr. Amit Kumar',erno:'1234', phno:'0123456789',email:'amit.kumar@juet.ac.in',profilepic:'',desc:'AI, Soft Computing'},
-        {name:'Dr. Dinesh Kumar Verma',erno:'1234', phno:'0123456789',email:'dinesh.verma@juet.ac.in',profilepic:'',desc:'software engineering, Micro Processor and Controller'},
-        {name:'Dr. Ajay Kumar',erno:'1234', phno:'0123456789',email:'ajay.kumar@juet.ac.in',profilepic:'',desc:'Data-Mining, Data Science and Computer Networking'},
-        {name:'Dr. Neelesh Kumar Jain',erno:'1234', phno:'0123456789',email:'neelesh.jain@juet.ac.in',profilepic:'',desc:'Digital Image Forensics, Computer Networks, ML, Data Structure, Design & Analysis of Algorithms'},
-        {name:'Dr. Nileshkumar R. Patel',erno:'1234', phno:'0123456789',email:'nilesh.patel@juet.ac.in',profilepic:'',desc:'Wireless Sensor Network , IoT, Machine and Deep Learning'},
-        {name:'Dr. Amit Kumar Srivastava',erno:'1234', phno:'0123456789',email:'amit.srivastava1@juet.ac.in',profilepic:'',desc:'Model based Engineering, AI and Computational Intelligence, ML, Robotics, Computer Vision'},
-        {name:'Dr. P.S. Banerjee',erno:'1234', phno:'0123456789',email:'partha.banerjee@juet.ac.in',profilepic:'',desc:'Natural Language Processing, AI, Data Base Management System, Unstructured Data Handling'},
-        {name:'Dr. Gaurav Saxena',erno:'1234', phno:'0123456789',email:'gaurav.saxena@juet.ac.in',profilepic:'',desc:'Signal processing, DCS, AI&ML, IoT, ADC, VLSI Architecture design and Computer Organization & Architecture'},
-        {name:'Dr. Kunj Bihari Meena',erno:'1234', phno:'0123456789',email:'kunjbihari.meena@juet.ac.in',profilepic:'',desc:'Digital Image Forensics, Deep Learning, Image Processing, Computer Vision, OOPs, DS'}
-    ]
+    const [sendprop,setprop]=useState(null)
+    const [cont,setCont]=useState('')
+    const location=useLocation()
+    
+    let title;
+    if ( location.state===null){ 
+        // const teamInfo = team.get('/team')
+        // let t=teamInfo.data.find(element=>element.teamID)
+        title='No proposal form filled, Fill a form to select mentor'
+    }
+    else {console.log(location.state.request);
+         title=location.state.request.title }
+
+    const [mentorDetails,setDetail]=useState([])
     const proposal=[]
+     
+    const getMentorDetails= async()=>{
+        const response=await mentor.get('/mentor')
+       setDetail(response.data)
+        
+    }
+    const loggedUser = localStorage.getItem("logged_user");
+    const Usererno = JSON.parse(loggedUser);  
+    
+
+    const checkTeam = async (Usererno)=>{
+        const response=await user.get('/user')
+        const logins=response.data
+        console.log(logins)
+        if(logins.find(element=>element.erno===Usererno.erno)){
+            const obj=logins.find(element=>element.erno===Usererno.erno)
+            // console.log(obj.teamID)
+            if(obj.teamID===null){
+                setCont(<h2>You are not a part of any team, Form a team first</h2>)
+            }
+            else if (obj.teamID){
+                setCont(
+                <div className="proposal-info">
+                    <h2 style={{margin:'none'}}>{obj.teamID}</h2>
+                    <span >{title}</span>
+                </div>        
+              )
+            }
+        }     
+    }
     useEffect(()=>{
-      
+        getMentorDetails()
+        checkTeam(Usererno)
+        if(location.state){
+            setprop(location.state.request)
+        }
+        //console.log(mentorDetails)
         const rows=Math.ceil(mentorDetails.length/4)
-        console.log(rows)
 
     },[])
-   // useEffect(()=>getproposal(item),[])
+
     const elements=mentorDetails.map(item=>{
         return(
             <div className="mentor-details">
@@ -36,17 +75,43 @@ export default function SendProposal(){
             <p style={{fontWeight:'bold',left:'10%'}}>Areas of Interest : </p>
             <p>{item.desc}</p>
             </div>
-            <button onClick={()=>{
-                let bt=document.getElementsByTagName('button')
-                bt.style.backgroundColor='green';
-                if(proposal.findIndex(element=>element===item.name)===-1) {proposal.push(item.name)} console.log(proposal)}}>send</button>
+            <button onClick={async()=>{
+
+            //----check if form is filled, then only send
+                if(sendprop===null)
+                    {alert("First fill the Form")}
+
+            //----Get which card is clicked upon-----
+                else{
+                    if(proposal.findIndex(element=>element==item.erno)===-1) {
+                        console.log("HAHA",item.name)
+                        const Proprequest={
+                            pid: sendprop.pid,
+                            teamID: sendprop.teamID,
+                            mentorID: item.erno,
+                            desc: sendprop.desc,
+                            title: sendprop.title,
+                            status: false
+                        }
+                        console.log(Proprequest)
+                    //----creste post request to server 
+                        const response= await proposals.post('/proposals',Proprequest)
+                        if(response) alert("sent")                  
+                    }
+                        proposal.push(item.erno)    //-----to avoid multiple entries of same data in proposals array
+                    }    
+                    // console.log(proposal)
+                    
+                //-----all mentors that get clicked, details collected to add to database
+           
+            }} >send</button>
             </div>
         )
     })
     
     return(
        <div className="send-proposal">
-                {/* <div style={{width:'80%',height:'10vh',backgroundColor:'rgb(189, 182, 171)',margin:'3vh'}}></div> */}
+          {cont}
           <h3>Select Mentor : </h3>
           <div className="card-container">                 
                 {elements.slice(0,4)}

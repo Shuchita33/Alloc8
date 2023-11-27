@@ -3,9 +3,37 @@ import '../dash.css';
 import logo from '../icons/Project.gif';
 import navbut from '../icons/nav_but.png';
 import { Outlet, useLocation,useNavigate } from 'react-router-dom';
+import user from '../api/data';
 
-export default function Admin(props){
+export default function Admin(){
     const navigate=useNavigate()
+    const saved = localStorage.getItem("logindata");
+    const loginData = JSON.parse(saved)
+
+    const [admin,setAdmin]=useState('')
+
+    const getAccountDetails= async()=>{
+        const response=await user.get('/user')
+        const logins=response.data
+        let obj=logins.find(element=>element.loginid===loginData.id)
+        console.log(obj);
+            
+        //------check for password------
+
+    if(obj.password===loginData.password && obj.role==='A')
+        {   //alert("logged in")
+             setAdmin({name:obj.name,erno:obj.erno,email:obj.email,phno:obj.phno})
+        }
+    else {
+        alert("Wrong Password")
+        navigate('/') }  
+            
+    }
+
+    useEffect(()=>{
+        getAccountDetails()
+    },[])
+
     return(
     <div>
         <header> 
@@ -18,18 +46,19 @@ export default function Admin(props){
         <div className='card'>
         <img className='pict' alt='pict'></img>
         <div className='profile'>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p>{admin.name}</p>
+            <p>{admin.erno}</p>
+            <p>{admin.email}</p>
+            <p>{admin.phno}</p>
         </div>
        </div>
        <div className='mainside'>
         <div className='top'>
-            <button className='options' onClick={()=>navigate('create-team')}>Create/View Team</button>
-            <button className='options' onClick={()=>navigate('view-proposal')} >View Proposal</button>
-            <button className='options' onClick={()=>navigate('send-proposal')} >Send Proposal</button>
-            <button className='options' onClick={()=>navigate('view-slots')}>View Slots</button>        
+            <button className='options' onClick={()=>navigate('create-user')}>Create User</button>
+            <button className='options' onClick={()=>navigate('delete-user')} >Delete User</button>
+            <button className='options' onClick={()=>navigate('view-student')} >View Students</button>
+            <button className='options' onClick={()=>navigate('view-mentor')} >View Mentors</button>
+            <button className='options' onClick={()=>navigate('view-teams')}>View Teams</button>        
         </div>
        <Outlet></Outlet>
        </div>  
