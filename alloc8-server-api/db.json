@@ -1,0 +1,278 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "loginid": "a",
+      "password": "a11",
+      "erno": "001",
+      "name": "A",
+      "email": "a@gmail.com",
+      "role": "A",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 2,
+      "loginid": "s",
+      "password": "s11",
+      "erno": "211b311",
+      "name": "Shuchita Gupta",
+      "email": "shuchita@gmail.com",
+      "role": "S",
+      "Profilepic": "",
+      "teamID": 44
+    },
+    {
+      "id": 3,
+      "loginid": "b",
+      "password": "b11",
+      "erno": "211b405",
+      "name": "Nancy Varyani",
+      "email": "nancy@gmail.com",
+      "role": "S",
+      "Profilepic": "",
+      "teamID": 44
+    },
+    {
+      "id": 4,
+      "loginid": "c",
+      "password": "c11",
+      "erno": "211b353",
+      "name": "Yash Agrahari",
+      "email": "yash@gmail.com",
+      "role": "S",
+      "Profilepic": "",
+      "teamID": 44
+    },
+    {
+      "id": 5,
+      "loginid": "d",
+      "password": "d11",
+      "erno": "211b122",
+      "name": "D",
+      "email": "d@gmail.com",
+      "role": "S",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 6,
+      "loginid": "e",
+      "password": "e11",
+      "erno": "211b123",
+      "name": "E",
+      "email": "e@gmail.com",
+      "role": "S",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 7,
+      "loginid": "g",
+      "password": "g11",
+      "erno": "211b234",
+      "name": "G",
+      "email": "g@gmail.com",
+      "role": "S",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 8,
+      "loginid": "h",
+      "password": "h11",
+      "erno": "112",
+      "name": "H",
+      "email": "h@gmail.com",
+      "role": "M",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 9,
+      "loginid": "i",
+      "password": "i11",
+      "erno": "121",
+      "name": "I",
+      "email": "i@gmail.com",
+      "role": "M",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 10,
+      "loginid": "j",
+      "password": "j11",
+      "erno": "211",
+      "name": "J",
+      "email": "j@gmail.com",
+      "role": "M",
+      "Profilepic": "",
+      "teamID": null
+    }
+  ],
+  "mentor": [
+    {
+      "id": 1,
+      "name": "Dr. Prateek Pandey",
+      "erno": "1111",
+      "phno": "9123456780",
+      "email": "prateek.pandey@juet.ac.in",
+      "profilepic": "",
+      "desc": "Blockchain, ML, Software Engineering and Computer Programming",
+      "slots": "8"
+    },
+    {
+      "id": 2,
+      "name": "Prof. Mahesh Kumar",
+      "erno": "2222",
+      "phno": "9123456780",
+      "email": "mahesh.kumar@juet.ac.in",
+      "profilepic": "",
+      "desc": "Computer Networks, Networks Security, ML, IoT, Deep Neural Network",
+      "slots": "8"
+    },
+    {
+      "id": 3,
+      "name": "Prof. Sanjay Garg",
+      "erno": "3333",
+      "phno": "9123456780",
+      "email": "sanjay.garg@juet.ac.in",
+      "profilepic": "",
+      "desc": "Data Science, Algorithms and Pattern Recognition",
+      "slots": "8"
+    },
+    {
+      "id": 4,
+      "name": "Prof. Vipin Tyagi",
+      "erno": "4444",
+      "phno": "9123456780",
+      "email": "vipin.tyagi@juet.ac.in",
+      "profilepic": "",
+      "desc": "Digital Image Processing, Cyber Forensics and Speech Recognition",
+      "slots": "8"
+    },
+    {
+      "id": 5,
+      "name": "Dr. Rahul Pachauri",
+      "erno": "5555",
+      "phno": "9123456780",
+      "email": "rahul.pachauri@juet.ac.in",
+      "profilepic": "",
+      "desc": "Digital Signal Processing, Wireless/Mobile Communication, ML, Neural Networks",
+      "slots": "8"
+    },
+    {
+      "id": 6,
+      "name": "Dr. Amit Kumar",
+      "erno": "6666",
+      "phno": "9123456780",
+      "email": "amit.kumar@juet.ac.in",
+      "profilepic": "",
+      "desc": "AI, Soft Computing",
+      "slots": "8"
+    },
+    {
+      "id": 7,
+      "name": "Dr. Dinesh Kumar Verma",
+      "erno": "7777",
+      "phno": "9123456780",
+      "email": "dinesh.verma@juet.ac.in",
+      "profilepic": "",
+      "desc": "software engineering, Micro Processor and Controller",
+      "slots": "8"
+    },
+    {
+      "id": 8,
+      "name": "Dr. Ajay Kumar",
+      "erno": "8888",
+      "phno": "9123456780",
+      "email": "ajay.kumar@juet.ac.in",
+      "profilepic": "",
+      "desc": "Data-Mining, Data Science and Computer Networking",
+      "slots": "8"
+    },
+    {
+      "id": 9,
+      "name": "Dr. Neelesh Kumar Jain",
+      "erno": "9999",
+      "phno": "9123456780",
+      "email": "neelesh.jain@juet.ac.in",
+      "profilepic": "",
+      "desc": "Digital Image Forensics, Computer Networks, ML, Data Structure, Design & Analysis of Algorithms",
+      "slots": "8"
+    },
+    {
+      "id": 10,
+      "name": "Dr. Nileshkumar R. Patel",
+      "erno": "1010",
+      "phno": "9123456780",
+      "email": "nilesh.patel@juet.ac.in",
+      "profilepic": "",
+      "desc": "Wireless Sensor Network , IoT, Machine and Deep Learning",
+      "slots": "8"
+    },
+    {
+      "id": 11,
+      "name": "Dr. Amit Kumar Srivastava",
+      "erno": "1001",
+      "phno": "9123456780",
+      "email": "amit.srivastava1@juet.ac.in",
+      "profilepic": "",
+      "desc": "Model based Engineering, AI and Computational Intelligence, ML, Robotics, Computer Vision",
+      "slots": "8"
+    },
+    {
+      "id": 12,
+      "name": "Dr. P.S. Banerjee",
+      "erno": "1212",
+      "phno": "9123456780",
+      "email": "partha.banerjee@juet.ac.in",
+      "profilepic": "",
+      "desc": "Natural Language Processing, AI, Data Base Management System, Unstructured Data Handling",
+      "slots": "8"
+    },
+    {
+      "id": 13,
+      "name": "Dr. Gaurav Saxena",
+      "erno": "1313",
+      "phno": "9123456780",
+      "email": "gaurav.saxena@juet.ac.in",
+      "profilepic": "",
+      "desc": "Signal processing, DCS, AI&ML, IoT, ADC, VLSI Architecture design and Computer Organization & Architecture",
+      "slots": "8"
+    },
+    {
+      "id": 14,
+      "name": "Dr. Kunj Bihari Meena",
+      "erno": "1414",
+      "phno": "9123456780",
+      "email": "kunjbihari.meena@juet.ac.in",
+      "profilepic": "",
+      "desc": "Digital Image Forensics, Deep Learning, Image Processing, Computer Vision, OOPs, DS",
+      "slots": "8"
+    }
+  ],
+  "proposals": [
+    {
+      "id": 1,
+      "pid": 1,
+      "teamID": 44,
+      "mentorID": 1111,
+      "desc": "A digitalised solution for project allocation process in college",
+      "title": "Alloc8",
+      "status": true
+    }
+  ],
+  "team": [
+    {
+      "id": 1,
+      "teamID": 44,
+      "leader": "211b353",
+      "member1": "211b311",
+      "member2": "211b405",
+      "mentorID": "1111",
+      "acptPID": 1
+    }
+  ]
+}
