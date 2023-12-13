@@ -45,13 +45,13 @@ export default function CreateTeam(){
         let checkmem1=true
         let checkmem2=true
 
-        const ldr=resp.data.find(element=>element.erno==lerno)
+        const ldr=resp.data.find(element=>element.erno===lerno)
         if(ldr && ldr.teamID!==null){ checklder=false;}
 
-        const mem1=resp.data.find(element=>element.erno==erno1)
+        const mem1=resp.data.find(element=>element.erno===erno1)
         if(mem1 && mem1.teamID!==null){ checkmem1=false;}
 
-        const mem2=resp.data.find(element=>element.erno==erno2)
+        const mem2=resp.data.find(element=>element.erno===erno2)
         if(mem2 && mem2.teamID!==null){ checkmem2=false}
      
         if(checklder && checkmem1 && checkmem2){
@@ -86,11 +86,10 @@ export default function CreateTeam(){
         
         event.target.reset();
     }
-    
     return(
         <form onSubmit={handleSubmit} className="create-team">
             <label className="teamform">Team Leader Name </label>
-            <input style={{position: 'relative',left: '2vh'}}className="inp" 
+            <input style={{position: 'relative',left: '4vw',marginTop:'2vh'}}className="inp" 
             type='text'
             name='leadername'
             id='leadername'
@@ -155,7 +154,7 @@ export default function CreateTeam(){
                 </div> */}
                 </div>             
             </div> 
-            <button style={{backgroundColor:'rgb(159, 85, 190)',color:'white',fontSize:'1em',border:'none'}}>SUBMIT</button>         
+            <button style={{backgroundColor:'rgb(159, 85, 190)',color:'white',fontSize:'1em',border:'none',padding:'1vh'}}>SUBMIT</button>         
         </form>
     )
 }

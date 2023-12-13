@@ -19,6 +19,7 @@ import ViewTeams from './components/ViewTeams';
 import CreateUser from './components/CreateUser';
 import DeleteUser from './components/DeleteUser';
 import ViewStudents from './components/ViewStudents';
+import ViewMentors from './components/ViewMentors';
 function App() {
   let [acc,setacc]=useState("Admin")
   // let [loginCred,setlogin]=useState({
@@ -66,6 +67,7 @@ function App() {
                   <Route path='view-proposal' element={<ViewProposal/>}/>
                   <Route path='send-proposal' element={<SendProposal/>}/>
                   <Route path='view-slots' element={<ViewSlots/>}/>
+                  <Route path='view-teams' element={<ViewTeams/>}/>
         </Route>
         <Route path='/mentor' 
               element={
@@ -80,7 +82,7 @@ function App() {
                   <Route path='create-user' element={<CreateUser/>}/>
                   <Route path='delete-user' element={<DeleteUser/>}/>
                   <Route path='view-student' element={<ViewStudents/>}/>
-                  <Route path='view-mentor' element={<DeleteUser/>}/>
+                  <Route path='view-mentor' element={<ViewMentors/>}/>
                   <Route path='view-teams' element={<ViewTeams/>}/>
         </Route>
      </Routes>

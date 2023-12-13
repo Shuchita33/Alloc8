@@ -9,6 +9,7 @@ export default function MentorDash(props){
     const navigate=useNavigate()
     const saved = localStorage.getItem("logindata");
     const loginData = JSON.parse(saved);
+
     const [proposal,setproposal]=useState({
         pid:'',teamId:'',mentor:'',title:'',desc:'',status:''
     })
@@ -28,7 +29,7 @@ export default function MentorDash(props){
                 {   //alert("logged in")
                     //go to destination page by passing props using 'state'    
                     setMentor({name:obj.name,erno:obj.erno,email:obj.email,phno:obj.phno})
-                    
+                    localStorage.setItem("logged_user", JSON.stringify(obj));
                     //console.log(student)              
                 }
                 else {

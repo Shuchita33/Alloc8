@@ -16,7 +16,7 @@ export default function StuDash(){
 
     const logins=[]
     const [check,setcheck]=useState('F');
-   
+
     function getTeaminfo(logins,erno,teamId){    
         let element=logins.filter(element=>element.teamID===teamId && element.erno!=erno)
         //console.log(element)
@@ -84,7 +84,7 @@ export default function StuDash(){
             <p>{student.name}</p>
             <p>{student.erno}</p>
             <p>{student.email}</p>
-            <p>{student.phno}</p>
+            <p>{student.phno}</p> 
         </div>
        </div>
        <div className='mainside'>
@@ -92,7 +92,8 @@ export default function StuDash(){
             <button className='options' onClick={teamDetails}>Create/View Team</button>
             <button className='options' onClick={()=>navigate('view-proposal')} >View Proposal</button>
             <button className='options' onClick={()=>navigate('send-proposal')} >Send Proposal</button>
-            <button className='options' onClick={()=>navigate('view-slots')}>View Slots</button>        
+            <button className='options' onClick={()=>navigate('view-slots')}>View Slots</button>  
+            <button className='options' onClick={()=>navigate('view-teams')}>View All Teams</button>       
         </div>
        <Outlet></Outlet>
        </div>  

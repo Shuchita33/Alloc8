@@ -257,7 +257,7 @@
     display: flex;
     flex-direction: column;
     width: 80vh;
-    height: 80vh;
+    height: 100vh;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3vh;
@@ -412,3 +412,46 @@
     height: 10px; */
     /* text-align: center; */
 } 
+/* new proposals */
+
+.disp-proj{
+    display: flex; flex-direction: row; justify-content: space-around;
+    align-items: center;
+    width:90%;
+    height:9vh;
+    background-color:rgb(189, 182, 171);
+    margin:3vh;
+    font-size: 100%;
+}
+.disp-proj .id{
+    height: 7vh; width: 6%;
+    background-color: rgb(128, 73, 128);
+    border-radius: 100%;
+    color:white;
+    text-align: center;
+    font-size: 1.5em;
+}
+.new-proposals .disp-proj .prop-title{
+    width: 80%;
+    height: 7vh;
+    font-size: 2em;
+}
+.view-students,.view-mentors, .view-teams{
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin-top: 5vh;
+}
+td{
+    height: 2vh;width: 10vw;
+    font-size: 1.2em;
+    padding: 1vh; 
+   border:solid 1px black;
+}
+tr{
+    border: solid 2px black;
+}
+
+/*------admin dashboard---------*/
+.adduserdiv{
+    display: flex; flex-direction: row; align-items: center; justify-content:center;
+}
