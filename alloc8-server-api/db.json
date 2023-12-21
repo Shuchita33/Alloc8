@@ -49,18 +49,6 @@
       "teamID": 44
     },
     {
-      "id": 5,
-      "loginid": "d",
-      "password": "d11",
-      "erno": "211b122",
-      "name": "D",
-      "phno": "9123456780",
-      "email": "d@gmail.com",
-      "role": "S",
-      "Profilepic": "",
-      "teamID": null
-    },
-    {
       "id": 6,
       "loginid": "e",
       "password": "e11",
@@ -70,7 +58,7 @@
       "email": "e@gmail.com",
       "role": "S",
       "Profilepic": "",
-      "teamID": null
+      "teamID": 45
     },
     {
       "id": 7,
@@ -82,7 +70,7 @@
       "email": "g@gmail.com",
       "role": "S",
       "Profilepic": "",
-      "teamID": null
+      "teamID": 45
     },
     {
       "id": 8,
@@ -203,6 +191,30 @@
       "role": "M",
       "Profilepic": "",
       "teamID": null
+    },
+    {
+      "loginid": "ss",
+      "password": "ss11",
+      "erno": "211b320",
+      "name": "SS",
+      "phno": "1234563214",
+      "email": "ss@gmail.com",
+      "role": "S",
+      "ProfilePic": "",
+      "teamID": null,
+      "id": 20
+    },
+    {
+      "loginid": "d",
+      "password": "d11",
+      "erno": "211b122",
+      "name": "D",
+      "phno": "1234563214",
+      "email": "d@gmail.com",
+      "role": "S",
+      "ProfilePic": "",
+      "teamID": 45,
+      "id": 21
     }
   ],
   "mentor": [
@@ -349,13 +361,49 @@
   ],
   "proposals": [
     {
-      "id": 1,
-      "pid": 1,
       "teamID": 44,
-      "mentorID": 1111,
-      "desc": "A digitalised solution for project allocation process in college",
+      "mentorID": "1111",
+      "desc": {
+        "info1": "Python, Html, Css, JS",
+        "info2": "Python, Programming fundamentals, Git/Github",
+        "info3": "Programming Fundamentals, DSA, Object Oriented Programming",
+        "info4": "Django, React",
+        "info5": "A digitalised solution to the project allocation in college.",
+        "info6": "Easy to use, convenient, transparent platform for students, mentors for minor/major project allocation"
+      },
       "title": "Alloc8",
-      "status": false
+      "status": false,
+      "id": 1
+    },
+    {
+      "teamID": 44,
+      "mentorID": "2222",
+      "desc": {
+        "info1": "Python, Html, Css, JS",
+        "info2": "Python, Programming fundamentals, Git/Github",
+        "info3": "Programming Fundamentals, DSA, Object Oriented Programming",
+        "info4": "Django, React",
+        "info5": "A digitalised solution to the project allocation in college.",
+        "info6": "Easy to use, convenient, transparent platform for students, mentors for minor/major project allocation"
+      },
+      "title": "Alloc8",
+      "status": false,
+      "id": 2
+    },
+    {
+      "teamID": 44,
+      "mentorID": "8888",
+      "desc": {
+        "info1": "Python, Html, Css, JS",
+        "info2": "Python, Programming fundamentals, Git/Github",
+        "info3": "Programming Fundamentals, DSA, Object Oriented Programming",
+        "info4": "Django, React",
+        "info5": "A digitalised solution to the project allocation in college.",
+        "info6": "Easy to use, convenient, transparent platform for students, mentors for minor/major project allocation"
+      },
+      "title": "Alloc8",
+      "status": false,
+      "id": 3
     }
   ],
   "team": [
@@ -366,7 +414,16 @@
       "member1": "211b311",
       "member2": "211b405",
       "mentorID": "1111",
-      "acptPID": 1
+      "acptPID": null
+    },
+    {
+      "teamID": 45,
+      "leader": "211b122",
+      "member1": "211b123",
+      "member2": "211b124",
+      "mentorID": null,
+      "acptPID": null,
+      "id": 2
     }
   ]
 }

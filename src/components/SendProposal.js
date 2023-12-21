@@ -84,7 +84,6 @@ export default function SendProposal(){
             //----Get which card is clicked upon-----
                 else{
                     if(proposal.findIndex(element=>element==item.erno)===-1) {
-                        console.log("HAHA",item.name)
                         const Proprequest={
                             pid: sendprop.pid,
                             teamID: sendprop.teamID,

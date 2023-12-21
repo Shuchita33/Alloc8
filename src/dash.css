@@ -4,6 +4,7 @@
     --bg: rgb(244, 242, 245);
     --header:rgb(80, 79, 80);
     --color:rgb(189, 182, 171);
+    --red:rgb(205, 64, 64);
  }
  .dashhead{  
      color: white; font-size:1vh;
@@ -103,7 +104,7 @@
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
  }
  .create-team,.team-details{
-     font-family: 'Comic Neue';
+     font-family: Comic Neue;
      font-size: 3vh;
      margin: 1vh;
      padding: 2vh;
@@ -436,7 +437,7 @@
     height: 7vh;
     font-size: 2em;
 }
-.view-students,.view-mentors, .view-teams{
+.view-students,.view-mentors, .view-teams,.delete-user{
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     margin-top: 5vh;
@@ -454,4 +455,49 @@ tr{
 /*------admin dashboard---------*/
 .adduserdiv{
     display: flex; flex-direction: row; align-items: center; justify-content:center;
+}
+
+.delete{
+    height:10vh;
+    width:80%;
+    background-color: var(--color);
+    margin-bottom: 5vh;
+    display:flex ;flex-direction: row; justify-content: space-around; align-items: center;
+}
+.delete-button{
+    height:60%;
+    width:10%;
+    background-color:rgb(180, 42, 42);
+    border:none ;
+    border-radius:5%;
+    color:white;
+}
+.desc-table tr :first-child{
+        width: 20%;
+}
+.desc-table td{
+    border: none;
+}
+.desc-table{
+    border: solid 0.5vh var(--header);
+}
+.accept,.decline{  
+    position: relative;
+    left:40%;
+    font-size: 1.2em;
+    padding: 1%;
+    margin:2vh;
+    border-radius: 7%;
+    border:solid  0.1vh black;
+   box-shadow: 0 8px 16px 0 rgba(100, 99, 99, 0.2), 0 6px 20px 0 rgba(95, 93, 93, 0.19);
+}
+.accept:hover{
+    background: rgb(92, 192, 92);
+    color: aliceblue;
+    
+}
+.decline:hover{
+    background: rgb(192, 92, 92);
+    color: aliceblue;
+    
 }

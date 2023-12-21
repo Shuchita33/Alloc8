@@ -24,24 +24,14 @@ export default function ViewProposal(){
       //-------check if a user is a part of a team or not------
         const resp= await user.get('/user')
         let obj=resp.data.find(element=>element.erno==Usererno.erno)
-        console.log(obj)
+      
         if(obj){
-            //----get a proposal id-------
-            let PId=1
-            const response = await team.get('/proposals')
-            const PropIDs=[]
-            response.data.forEach(element => {
-                PropIDs.push([element.pid])
-            });
-            PropIDs.sort()
-           
-            PId=((parseInt(PropIDs[PropIDs.length-1])+1))
-            console.log(PId)
+        
            const TId=obj.teamID
-           const request={  pid: PId,
+           const request={ 
                             teamID: TId,
                             mentorID: null,
-                            desc:  `Language/ Tools that may be used : ${tools}\nPrerequisite Knowledge Required : ${preknow}\nConcepts/ Subjects : ${subj}\nSoftware/ Tools : ${soft} Description about Project : ${desc} Expected Outcomes : ${otc}`,
+                            desc: {info1:tools,info2:preknow,info3:subj,info4:soft,info5:desc,info6:otc},
                             title: title,
                             status: false}
             navigate('/student/send-proposal',{state:{request}})       

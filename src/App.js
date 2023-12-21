@@ -20,6 +20,7 @@ import CreateUser from './components/CreateUser';
 import DeleteUser from './components/DeleteUser';
 import ViewStudents from './components/ViewStudents';
 import ViewMentors from './components/ViewMentors';
+import GetProposal from './components/GetProposal';
 function App() {
   let [acc,setacc]=useState("Admin")
   // let [loginCred,setlogin]=useState({
@@ -72,7 +73,8 @@ function App() {
         <Route path='/mentor' 
               element={
               <div className='mentor'><MentorDash/></div>}>
-                  <Route path='new-proposals' element={<NewProposals/>}/>
+                  <Route path='view' element={<GetProposal/>}/>
+                  <Route path='new-proposals' element={<NewProposals/>}/>                 
                   <Route path='accepted-proposals' element={<AcceptedProposals/>}/>
                   <Route path='view-teams' element={<ViewTeams/>}/>
         </Route>

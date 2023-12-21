@@ -17,6 +17,7 @@ export default function CreateUser(){
         const pass2=e.target.pass2.value
         const desc=e.target.desc.value
         const slots=e.target.slots.value
+        
         if(pass1===pass2){
             password=pass1
         }

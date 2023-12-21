@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import '../dash.css';
 import proposal from '../api/data'
+import { useNavigate } from "react-router-dom";
 export default function NewProposals(){
+    const navigate=useNavigate()
     const loggedUser = localStorage.getItem("logged_user");
     const Usererno = JSON.parse(loggedUser)
 
@@ -12,17 +14,18 @@ export default function NewProposals(){
         let filtered=res.data.filter(element=>element.mentorID==Usererno.erno && element.status==false)
         setProps(filtered)
     }
-
+    // async function ViewFunc(){
+    //     console.log(allProps)
+    // }
     useEffect(()=>{
         getAllProps();
-        console.log(allProps)
     })
     const DispProps=allProps.map(item=>{
         return(
             <div className="disp-proj">
                 <div className="id">{item.teamID}</div>
                 <h6 className="prop-title">{item.title}</h6>
-                <button onClick={()=>{}}>View</button>
+                <button onClick={()=>{navigate('/mentor/view',{state:item.id})}}>View</button>
             </div>
         )
     })
