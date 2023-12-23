@@ -5,6 +5,11 @@
     --header:rgb(80, 79, 80);
     --color:rgb(189, 182, 171);
     --red:rgb(205, 64, 64);
+    --font1:'Bitter', serif;
+    --font2:'Cutive', serif;
+    --font3:'Expletus Sans', cursive;
+    --font4:'Merienda', cursive;
+    --font5:'Comic Neue';
  }
  .dashhead{  
      color: white; font-size:1vh;
@@ -499,5 +504,28 @@ tr{
 .decline:hover{
     background: rgb(192, 92, 92);
     color: aliceblue;
+    
+}
+.table-view{
+    text-align: center;
+    font-size:0.8em;
+    border-collapse:collapse;
+    /* border: solid 1% black; */
+}
+.table-view thead{
+    box-shadow: 0 8px 16px 0 rgba(110, 110, 110, 0.2), 0 6px 20px 0 rgba(151, 151, 151, 0.19);
+    font-weight:500;
+    font-size:1.2em;
+    background-color:rgb(189, 182, 171);
+}
+.table-view tbody{
+    font-family:var(--font1);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);   
+}
+.table-view tbody td{
+    padding: 0px;
+}
+tr:hover{
+    background-color: rgba(143, 143, 143, 0.2);
     
 }

@@ -69,7 +69,7 @@ export default function TeamDetails(){
                             let mentorName= getMentor.data.find(element=>element.erno==teamNo.mentorID)
 
                             const getAllProposals=await proposal.get('/proposals')
-                            let prop=getAllProposals.data.find(element=>element.pid==accepted)
+                            let prop=getAllProposals.data.find(element=>element.id==accepted)
                             //console.log(prop)
 
                             setInfo({projectTitle:prop.title,allottedMentor:mentorName.name})

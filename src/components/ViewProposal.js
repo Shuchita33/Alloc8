@@ -25,7 +25,7 @@ export default function ViewProposal(){
         const resp= await user.get('/user')
         let obj=resp.data.find(element=>element.erno==Usererno.erno)
       
-        if(obj){
+        if(obj.acptID===null){
         
            const TId=obj.teamID
            const request={ 
@@ -36,6 +36,7 @@ export default function ViewProposal(){
                             status: false}
             navigate('/student/send-proposal',{state:{request}})       
         }
+        else if(obj.acptID!==null) alert("You are already been alotted")
         else{alert("Create a team first")}  
     }
     return(

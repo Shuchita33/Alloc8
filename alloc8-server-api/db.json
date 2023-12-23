@@ -74,95 +74,119 @@
     },
     {
       "id": 8,
-      "loginid": "h",
-      "password": "h11",
+      "loginid": "pp",
+      "password": "pp11",
       "name": "Dr. Prateek Pandey",
       "erno": "1111",
-      "phno": "1234567899",
-      "email": "h@gmail.com",
+      "phno": "9123456780",
+      "email": "prateek.pandey@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
     },
     {
       "id": 9,
-      "loginid": "i",
-      "password": "i11",
+      "loginid": "mh",
+      "password": "mh11",
       "name": "Prof. Mahesh Kumar",
       "erno": "2222",
-      "phno": "1234567899",
-      "email": "i@gmail.com",
+      "phno": "9123456780",
+      "email": "mahesh.kumar@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
     },
     {
       "id": 10,
-      "loginid": "j",
-      "password": "j11",
+      "loginid": "sg",
+      "password": "sg11",
       "name": "Prof. Sanjay Garg",
       "erno": "3333",
-      "phno": "1234567899",
-      "email": "j@gmail.com",
+      "phno": "9123456780",
+      "email": "sanjay.garg@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
     },
     {
       "id": 11,
-      "loginid": "k",
-      "password": "k11",
+      "loginid": "vp",
+      "password": "vp11",
       "name": "Prof. Vipin Tyagi",
       "erno": "4444",
-      "phno": "1234567899",
-      "email": "j@gmail.com",
+      "phno": "9123456780",
+      "email": "vipin.tyagi@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
     },
     {
       "id": 12,
-      "loginid": "l",
-      "password": "l11",
+      "loginid": "rp",
+      "password": "rp11",
       "name": "Dr. Rahul Pachauri",
       "erno": "5555",
-      "phno": "1234567899",
-      "email": "j@gmail.com",
+      "phno": "9123456780",
+      "email": "rahul.pachauri@juet.ac.in",
+      "role": "M",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 13,
+      "loginid": "ak",
+      "password": "ak11",
+      "name": "Dr. Amit Kumar",
+      "erno": "6666",
+      "phno": "9123456780",
+      "email": "amit.kumar@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
     },
     {
       "id": 14,
-      "loginid": "m",
-      "password": "m11",
-      "name": "Dr. Amit Kumar",
-      "erno": "6666",
-      "phno": "1234567899",
-      "email": "j@gmail.com",
+      "loginid": "aj",
+      "password": "aj11",
+      "name": "Dr. Ajay Kumar",
+      "erno": "8888",
+      "phno": "9123456780",
+      "email": "ajay.kumar@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
     },
     {
       "id": 15,
-      "loginid": "m",
-      "password": "m11",
-      "name": "Dr. Dinesh Kumar Verma",
-      "erno": "7777",
-      "phno": "1234567899",
-      "email": "j@gmail.com",
+      "loginid": "nj",
+      "password": "nj11",
+      "name": "Dr. Neelesh Kumar Jain",
+      "erno": "9999",
+      "phno": "9123456780",
+      "email": "neelesh.jain@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
     },
     {
       "id": 16,
-      "loginid": "n",
-      "password": "n11",
-      "name": "Dr. Dinesh Kumar Verma",
-      "erno": "7777",
-      "phno": "1234567899",
+      "loginid": "np",
+      "password": "np11",
+      "name": "Dr. Nileshkumar R. Patel",
+      "erno": "1010",
+      "phno": "9123456780",
+      "email": "nilesh.patel@juet.ac.in",
+      "role": "M",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 17,
+      "loginid": "as",
+      "password": "as11",
+      "name": "Dr. Amit Kumar Srivastava",
+      "erno": "1001",
+      "phno": "9123456780",
       "email": "j@gmail.com",
       "role": "M",
       "Profilepic": "",
@@ -170,24 +194,36 @@
     },
     {
       "id": 18,
-      "loginid": "o",
-      "password": "o11",
-      "name": "Dr. Ajay Kumar",
-      "erno": "8888",
-      "phno": "1234567899",
-      "email": "j@gmail.com",
+      "loginid": "ps",
+      "password": "ps11",
+      "name": "Dr. P.S. Banerjee",
+      "erno": "1212",
+      "phno": "9123456780",
+      "email": "partha.banerjee@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
     },
     {
       "id": 19,
-      "loginid": "p",
-      "password": "p11",
-      "name": "Dr. Amit Kumar Srivastava",
-      "erno": "1001",
-      "phno": "1234567899",
-      "email": "j@gmail.com",
+      "loginid": "gs",
+      "password": "gs11",
+      "name": "Dr. Gaurav Saxena",
+      "erno": "1313",
+      "phno": "9123456780",
+      "email": "gaurav.saxena@juet.ac.in",
+      "role": "M",
+      "Profilepic": "",
+      "teamID": null
+    },
+    {
+      "id": 22,
+      "loginid": "kb",
+      "password": "kb11",
+      "name": "Dr. Kunj Bihari Meena",
+      "erno": "1313",
+      "phno": "9123456780",
+      "email": "kunjbihari.meena@juet.ac.in",
       "role": "M",
       "Profilepic": "",
       "teamID": null
@@ -197,7 +233,7 @@
       "password": "ss11",
       "erno": "211b320",
       "name": "SS",
-      "phno": "1234563214",
+      "phno": "8888656780",
       "email": "ss@gmail.com",
       "role": "S",
       "ProfilePic": "",
@@ -209,12 +245,24 @@
       "password": "d11",
       "erno": "211b122",
       "name": "D",
-      "phno": "1234563214",
+      "phno": "998756780",
       "email": "d@gmail.com",
       "role": "S",
       "ProfilePic": "",
       "teamID": 45,
       "id": 21
+    },
+    {
+      "loginid": "st",
+      "password": "st11",
+      "erno": "211b321",
+      "name": "ST",
+      "phno": "1332244115",
+      "email": "st@gmail.com",
+      "role": "S",
+      "ProfilePic": "",
+      "teamID": null,
+      "id": 23
     }
   ],
   "mentor": [
@@ -226,7 +274,7 @@
       "email": "prateek.pandey@juet.ac.in",
       "profilepic": "",
       "desc": "Blockchain, ML, Software Engineering and Computer Programming",
-      "slots": "8"
+      "slots": 6
     },
     {
       "id": 2,
@@ -279,16 +327,6 @@
       "slots": "8"
     },
     {
-      "id": 7,
-      "name": "Dr. Dinesh Kumar Verma",
-      "erno": "7777",
-      "phno": "9123456780",
-      "email": "dinesh.verma@juet.ac.in",
-      "profilepic": "",
-      "desc": "software engineering, Micro Processor and Controller",
-      "slots": "8"
-    },
-    {
       "id": 8,
       "name": "Dr. Ajay Kumar",
       "erno": "8888",
@@ -326,7 +364,7 @@
       "email": "amit.srivastava1@juet.ac.in",
       "profilepic": "",
       "desc": "Model based Engineering, AI and Computational Intelligence, ML, Robotics, Computer Vision",
-      "slots": "8"
+      "slots": "0"
     },
     {
       "id": 12,
@@ -372,7 +410,7 @@
         "info6": "Easy to use, convenient, transparent platform for students, mentors for minor/major project allocation"
       },
       "title": "Alloc8",
-      "status": false,
+      "status": true,
       "id": 1
     },
     {
@@ -387,7 +425,7 @@
         "info6": "Easy to use, convenient, transparent platform for students, mentors for minor/major project allocation"
       },
       "title": "Alloc8",
-      "status": false,
+      "status": true,
       "id": 2
     },
     {
@@ -402,8 +440,23 @@
         "info6": "Easy to use, convenient, transparent platform for students, mentors for minor/major project allocation"
       },
       "title": "Alloc8",
-      "status": false,
+      "status": true,
       "id": 3
+    },
+    {
+      "teamID": 45,
+      "mentorID": "1111",
+      "desc": {
+        "info1": "HTML, CSS , JavaScript, MySQL",
+        "info2": "Programming fundamentals, OOPs",
+        "info3": "OOPs, DSA, DBMS",
+        "info4": "ReactJS, MYSQL, Git/Github,VSCode",
+        "info5": "Online website to provide best medical care to people especially old age.",
+        "info6": "Learn how to create a fully functional web application to serve a purpose"
+      },
+      "title": "Medicoded",
+      "status": true,
+      "id": 4
     }
   ],
   "team": [
@@ -414,15 +467,15 @@
       "member1": "211b311",
       "member2": "211b405",
       "mentorID": "1111",
-      "acptPID": null
+      "acptPID": 1
     },
     {
       "teamID": 45,
       "leader": "211b122",
       "member1": "211b123",
       "member2": "211b124",
-      "mentorID": null,
-      "acptPID": null,
+      "mentorID": "1111",
+      "acptPID": 4,
       "id": 2
     }
   ]

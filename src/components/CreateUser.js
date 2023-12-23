@@ -4,7 +4,7 @@ import user from '../api/data';
 import mentor from '../api/data';
 export default function CreateUser(){
     async function AddOnSubmit(e){
-        //.preventDefault();
+        e.preventDefault()
         let password;
         const erno=e.target.erno.value
         const name=e.target.name.value
@@ -33,10 +33,12 @@ export default function CreateUser(){
             ProfilePic:"",
             teamID:null
         }
+        console.log(role)
         if(role==="S"){
             const res=await user.post('/user',request)
-            console.log(res)
+            console.log(role)
             alert("Created User Account")
+            window.location.reload()
         }  
         if(role==="M"){
             const req={
@@ -52,6 +54,7 @@ export default function CreateUser(){
             console.log(res)
             console.log(resp)
             alert("Created Mentor Account ")
+            window.location.reload()
         }   
     }
     return(

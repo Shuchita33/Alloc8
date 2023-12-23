@@ -14,7 +14,7 @@ export default function ViewSlots(){
         getMentor()
         console.log(mentors)
 
-    })
+    },[])
  
     const allMentors=mentors.map(item=>{
         console.log(item)
@@ -25,7 +25,7 @@ export default function ViewSlots(){
             </div>
         )    
     })
-
+    console.log(allMentors)
     return(
             <div className="second">
                 <div class="s1">

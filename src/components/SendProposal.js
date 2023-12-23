@@ -94,8 +94,11 @@ export default function SendProposal(){
                         }
                         console.log(Proprequest)
                     //----creste post request to server 
+                     if(item.slots==0) {alert("NO slots left!")}
+                     else{
                         const response= await proposals.post('/proposals',Proprequest)
-                        if(response) alert("sent")                  
+                        if(response) alert("sent")    
+                     }              
                     }
                         proposal.push(item.erno)    //-----to avoid multiple entries of same data in proposals array
                     }    

@@ -4,6 +4,7 @@ import proposal from '../api/data'
 import { useNavigate } from "react-router-dom";
 export default function NewProposals(){
     const navigate=useNavigate()
+    //----get id of the mentor who has logged into their dashboard
     const loggedUser = localStorage.getItem("logged_user");
     const Usererno = JSON.parse(loggedUser)
 
@@ -19,7 +20,7 @@ export default function NewProposals(){
     // }
     useEffect(()=>{
         getAllProps();
-    })
+    },[])
     const DispProps=allProps.map(item=>{
         return(
             <div className="disp-proj">

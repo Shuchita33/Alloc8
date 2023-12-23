@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import '../dash.css';
-import proposal from '../api/data'
-import { useLocation } from "react-router-dom";
 import user from '../api/data';
+import proposal from '../api/data';
+import teamtable from '../api/data';
+import mentor from '../api/data';
+import { useLocation, useNavigate } from "react-router-dom";
 export default function NewProposals(){
+    //----get id of the mentor who has logged into their dashboard
+    const loggedUser = localStorage.getItem("logged_user");
+    let Usererno = JSON.parse(loggedUser)
+    Usererno=Usererno.erno
+
+    const [Buttons,setBut]=useState('')
+
+    const navigate=useNavigate()
     const location=useLocation()
     const id=location.state
     const [team,setMem]=useState([])
@@ -26,8 +36,54 @@ export default function NewProposals(){
         setMem([members[0].name,members[1].name,members[2].name])
 
     }
+    async function AcceptFunc(){
+        const getid=await proposal.get('/proposals')
+        let pid=getid.data.find(ele=>ele.id===id) 
+        console.log(pid.id)
+        pid.status=true;
+        const teamno=pid.teamID
+        await proposal.put(`/proposals/${id}`,pid)
+
+    //------set all proposal statuses sent by this team to true once it gets accepted by any one mentor-------
+        let send=getid.data.filter(ele=>ele.teamID===teamno)
+        send.forEach(async(prop)=>{
+            prop.status=true
+            await proposal.put(`/proposals/${prop.id}`,prop)
+
+        })
+    //-----make changes in team details regarding accepted proposal id and id of mentor who has accepted it-----
+        const getteam= await teamtable.get('/team')
+        let thisteam=getteam.data.find(team=>team.teamID===teamno)
+        thisteam.acptPID=pid.id
+        thisteam.mentorID=Usererno
+        await teamtable.put(`/team/${thisteam.id}`,thisteam)
+
+    //-----Decrement mentor slots------------------------
+        const men= await mentor.get('/mentor')
+        let mentorDetails=men.data.find(ele=>ele.erno===Usererno)
+        mentorDetails.slots=parseInt(mentorDetails.slots)-1
+        await mentor.put(`/mentor/${mentorDetails.id}`,mentorDetails)
+        alert("Proposal Accepted")
+        navigate('/mentor/new-proposals')
+    }
+    async function DecFunc(){
+
+    }
+    //-----Check whether this proposal is accepted or not, else it appears in accepted section with no buttons-----
+    async function StatusInfo(){
+        const getid=await proposal.get('/proposals')
+        let pid=getid.data.find(ele=>ele.id===id)
+        if(pid.status!==true){
+            setBut(<div style={{display:'block'}}>
+            <button className="accept" onClick={AcceptFunc}>Accept</button> 
+            <button className="decline" onClick={DecFunc}>Decline</button>
+            </div>)
+        }
+        
+    }
     useEffect(()=>{
         getFormDetails()
+        StatusInfo()
         
     },[])
     return(
@@ -73,10 +129,7 @@ export default function NewProposals(){
             </tr>
         </table>
           </div>
-          <div style={{display:'block'}}>
-          <button className="accept">Accept</button> 
-          <button className="decline">Decline</button>
-          </div>
+          {Buttons}
         </div>
     )
 }

@@ -58,7 +58,7 @@ export default function Footer(){
            </div>
         
         </footer>
-            <div style={{height:'5vh',width:'100%',background:'black'}}></div>
+            <div style={{height:'5vh',width:'100%',background:'black',color:'white'}}>&#169; 2023 Alloc8 SYN</div>
         </div>
     )
 }
