@@ -5,7 +5,7 @@ export default function ViewStudents(){
     const [allStudents,setAllStudents]=useState([])
     const getAllStudents= async()=>{
         const response= await user.get('/user')
-        let final=response.data.filter(element=>element.role=="S")
+        let final=response.data.filter(element=>element.role=="S" && element.teamID===null)
         final.sort()
         setAllStudents(final)
     }

@@ -5,6 +5,7 @@
     --header:rgb(80, 79, 80);
     --color:rgb(189, 182, 171);
     --red:rgb(205, 64, 64);
+    --lightpurple:rgba(230, 230, 230, 0.918);
     --font1:'Bitter', serif;
     --font2:'Cutive', serif;
     --font3:'Expletus Sans', cursive;
@@ -528,4 +529,36 @@ tr{
 tr:hover{
     background-color: rgba(143, 143, 143, 0.2);
     
+}
+.dropdown{
+    bottom: -2%;
+    height: 0;
+    width: 0;
+    right: 1%;
+    position: absolute;
+    border-left: solid 3vh transparent;
+    border-right: solid 3vh transparent;
+    border-bottom: solid 3vh var(--lightpurple);
+   
+}
+.menu{
+    color: #000000;
+    font-weight: 500;
+    font:var(--font1);
+    padding: 1vh;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 20vw;
+    background-color: var(--lightpurple);
+    position: absolute;
+    right: 0%;
+    margin-top: 5px;
+    border-radius: 3%;
+    font-size: 2.5em;
+}
+.menu a{
+    margin: 1vh;
+    text-decoration: none;
 }

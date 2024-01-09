@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import '../dash.css';
+import Dropdown3 from './Dropdown3';
 import logo from '../icons/Project.gif';
 import navbut from '../icons/nav_but.png';
 import { Outlet, useLocation,useNavigate } from 'react-router-dom';
@@ -7,8 +8,11 @@ import user from '../api/data';
 
 export default function Admin(){
     const navigate=useNavigate()
+
     const saved = localStorage.getItem("logindata");
     const loginData = JSON.parse(saved)
+
+    const [DrpdwnVisible,setDrpdwnVisible]=useState(false);
 
     const [admin,setAdmin]=useState('')
 
@@ -40,7 +44,15 @@ export default function Admin(){
         <div className='dashhead'>
         <img className='logo'src={logo} alt='logo' onClick={()=>{navigate(0)}}></img>
         <button className="dbuts" onClick={()=>{navigate('/')}}>Logout</button>  
-        <img style={{height:'7vh'}}className='navbut'src={navbut} alt='navbut'></img>
+        <div>
+            <img style={{height:'7vh',position:'relative'}}className='navbut'src={navbut} alt='navbut'
+            onPointerEnter={()=>{setDrpdwnVisible(true)}} 
+             
+             ></img>
+             <div onPointerLeave={()=>{setDrpdwnVisible(false)}}>
+             {DrpdwnVisible && <Dropdown3/>}
+             </div>  
+        </div>
         </div>
         </header>
         <div className='card'>

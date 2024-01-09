@@ -11,7 +11,7 @@ export default function ViewMentors(){
     useEffect(()=>{
         getallMentors()
         
-    })
+    },[])
 
     const DispMentors=allMentors.map(item=>{
         

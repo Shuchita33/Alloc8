@@ -21,6 +21,8 @@ import DeleteUser from './components/DeleteUser';
 import ViewStudents from './components/ViewStudents';
 import ViewMentors from './components/ViewMentors';
 import GetProposal from './components/GetProposal';
+import RemStudents from './components/RemStudents';
+import UnallocatedDet from './components/UnallocatedDet';
 function App() {
   let [acc,setacc]=useState("Admin")
   // let [loginCred,setlogin]=useState({
@@ -69,6 +71,7 @@ function App() {
                   <Route path='send-proposal' element={<SendProposal/>}/>
                   <Route path='view-slots' element={<ViewSlots/>}/>
                   <Route path='view-teams' element={<ViewTeams/>}/>
+                  <Route path='remaining-students' element={<RemStudents/>}/>
         </Route>
         <Route path='/mentor' 
               element={
@@ -77,6 +80,7 @@ function App() {
                   <Route path='new-proposals' element={<NewProposals/>}/>                 
                   <Route path='accepted-proposals' element={<AcceptedProposals/>}/>
                   <Route path='view-teams' element={<ViewTeams/>}/>
+                  <Route path='view-mentor-slots' element={<ViewSlots/>}/>
         </Route>
         <Route path='/admin' 
         element={
@@ -86,6 +90,9 @@ function App() {
                   <Route path='view-student' element={<ViewStudents/>}/>
                   <Route path='view-mentor' element={<ViewMentors/>}/>
                   <Route path='view-teams' element={<ViewTeams/>}/>
+                  <Route path='un-allocated-teams' element={<UnallocatedDet/>}/>
+                  <Route path='remaining-students' element={<RemStudents/>}/>
+                  <Route path='view-mentor-slots' element={<ViewSlots/>}/>
         </Route>
      </Routes>
     </div>

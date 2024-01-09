@@ -2,10 +2,12 @@ import React, { useState,useEffect } from 'react';
 import '../dash.css';
 import logo from '../icons/Project.gif';
 import navbut from '../icons/nav_but.png';
+import DropDown1 from './Dropdown1';
 import { Outlet, useLocation,useNavigate } from 'react-router-dom';
 import user from '../api/data'
 
 export default function StuDash(){
+    const [DrpdwnVisible,setDrpdwnVisible]=useState(false);
     const navigate=useNavigate()  
     //const loginData=props.log
     const saved = localStorage.getItem("logindata");
@@ -74,9 +76,17 @@ export default function StuDash(){
         <header> 
         <div className='dashhead'>
         <img className='logo'src={logo} alt='logo' onClick={()=>{navigate('/student')}}></img>
-        <button className="dbuts" onClick={()=>{navigate('/')}}>Logout</button>  
-        <img style={{height:'7vh'}}className='navbut'src={navbut} alt='navbut'></img>
-        </div>
+        <button className="dbuts" onClick={()=>{navigate('/')}}>Logout</button> 
+        <div>
+            <img style={{height:'7vh',position:'relative'}}className='navbut'src={navbut} alt='navbut'
+            onPointerEnter={()=>{setDrpdwnVisible(true)}} 
+             
+             ></img>
+             <div onPointerLeave={()=>{setDrpdwnVisible(false)}}>
+             {DrpdwnVisible && <DropDown1/>}
+             </div>             
+        </div>     
+        </div> 
         </header>
         <div className='card'>
         <img className='pict' alt='pict'></img>

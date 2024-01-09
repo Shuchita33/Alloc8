@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import '../dash.css';
+import Dropdown2 from './Dropdown2';
 import logo from '../icons/Project.gif';
 import navbut from '../icons/nav_but.png';
 import { Outlet, useLocation,useNavigate } from 'react-router-dom';
@@ -9,12 +10,11 @@ export default function MentorDash(props){
     const navigate=useNavigate()
     const saved = localStorage.getItem("logindata");
     const loginData = JSON.parse(saved);
-
-    const [proposal,setproposal]=useState({
-        pid:'',teamId:'',mentor:'',title:'',desc:'',status:''
-    })
     
+    const [DrpdwnVisible,setDrpdwnVisible]=useState(false);
+
     const [mentor,setMentor]=useState({name:'',erno:'',email:'',phno:'',slots:''})
+
     const getAccountDetails= async()=>{
         const response=await user.get('/user')
         const logins=response.data
@@ -46,7 +46,15 @@ export default function MentorDash(props){
         <div className='dashhead'>
         <img className='logo'src={logo} alt='logo' onClick={()=>{navigate('/mentor')}}></img>
         <button className="dbuts" onClick={()=>{navigate('/')}}>Logout</button>  
-        <img style={{height:'7vh'}}className='navbut'src={navbut} alt='navbut'></img>
+        <div>
+            <img style={{height:'7vh',position:'relative'}}className='navbut'src={navbut} alt='navbut'
+            onPointerEnter={()=>{setDrpdwnVisible(true)}} 
+             
+             ></img>
+             <div onPointerLeave={()=>{setDrpdwnVisible(false)}}>
+             {DrpdwnVisible && <Dropdown2/>}
+             </div>  
+        </div>
         </div>
         </header>
         <div className='card'>
